@@ -1,20 +1,15 @@
 [build]
-  command = "rm -rf node_modules package-lock.json && npm install --legacy-peer-deps && npm run build"
+  command = "rm -rf node_modules package-lock.json .next && npm install --legacy-peer-deps && npm run build"
   publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "18.17.0"
-  NPM_VERSION = "9.6.7"
+  NODE_VERSION = "18"
+  NPM_VERSION = "8"
   NEXT_TELEMETRY_DISABLED = "1"
-  NODE_OPTIONS = "--max_old_space_size=4096"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+  NODE_OPTIONS = "--max-old-space-size=4096"
 
 [functions]
   node_bundler = "esbuild"
 
-[dev]
-  command = "npm run dev"
-  port = 3000
-  targetPort = 3000
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
