@@ -1,25 +1,36 @@
 #!/bin/bash
 
-# Script para corrigir problemas de build no Netlify
-echo "🔧 Corrigindo problemas de build..."
+echo "🔧 Corrigindo problemas de build do Netlify..."
 
-# Remove cache e dependências
-echo "🗑️ Removendo cache e dependências antigas..."
+# Limpar cache e dependências
+echo "🧹 Limpando cache e dependências..."
 rm -rf node_modules
-rm -rf package-lock.json
+rm -f package-lock.json
 rm -rf .next
-rm -rf .npm
 
-# Limpa cache do npm
-echo "🧹 Limpando cache do npm..."
+# Limpar cache do npm
+echo "🗑️ Limpando cache do npm..."
 npm cache clean --force
 
-# Instala dependências com flags de compatibilidade
+# Instalar dependências com flags de compatibilidade
 echo "📦 Instalando dependências..."
 npm install --legacy-peer-deps --no-optional
 
-# Build do projeto
-echo "🏗️ Fazendo build do projeto..."
-npm run build
-
-echo "✅ Build concluído!"
+# Verificar se a instalação foi bem-sucedida
+if [ $? -eq 0 ]; then
+    echo "✅ Dependências instaladas com sucesso!"
+    
+    # Tentar fazer o build
+    echo "🏗️ Fazendo build..."
+    npm run build
+    
+    if [ $? -eq 0 ]; then
+        echo "🎉 Build concluído com sucesso!"
+    else
+        echo "❌ Erro no build"
+        exit 1
+    fi
+else
+    echo "❌ Erro na instalação das dependências"
+    exit 1
+fi
