@@ -1,0 +1,47 @@
+# A local development configuration file.
+# Any environment variables provided here will take precedence over .env files.
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[auth]
+enabled = true
+port = 9999
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["https://localhost:3000"]
+jwt_expiry = 3600
+enable_signup = true
+enable_confirmations = false
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+enable_confirmations = false
+
+[db]
+port = 54322
+
+[functions]
+enabled = true
+
+[storage]
+enabled = true
+port = 54323
+image_transformation = {
+  enabled = true
+}
+
+[edge_runtime]
+enabled = true
+port = 54324
+
+[analytics]
+enabled = false
+port = 54327
+vector_port = 54328
+# Setup BigQuery project to use analytics
+# project_id = ""

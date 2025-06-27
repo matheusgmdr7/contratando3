@@ -1,0 +1,10 @@
+{
+  "name": "bcryptjs-dependencies",
+  "description": "Dependências do bcryptjs para adicionar ao package.json principal",
+  "dependencies": {
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6"
+  }
+}

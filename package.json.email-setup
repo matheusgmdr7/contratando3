@@ -1,0 +1,14 @@
+{
+  "name": "email-setup-scripts",
+  "version": "1.0.0",
+  "scripts": {
+    "setup-supabase": "npm install -g supabase",
+    "init-functions": "supabase functions new enviar-email",
+    "deploy-email": "supabase functions deploy enviar-email",
+    "test-email": "supabase functions serve",
+    "check-functions": "supabase functions list"
+  },
+  "devDependencies": {
+    "supabase": "^1.0.0"
+  }
+}
