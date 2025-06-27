@@ -10,7 +10,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Badge } from "@/components/ui/badge"
-import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 // Tipo para as mensagens
@@ -140,10 +139,8 @@ export default function AssistenteVirtual() {
               <ScrollArea className="flex-1 pr-4">
                 <div className="space-y-4 pt-4">
                   {messages.map((message) => (
-                    <motion.div
+                    <div
                       key={message.id}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
                       className={cn("flex", message.sender === "user" ? "justify-end" : "justify-start")}
                     >
                       <div className="flex items-start gap-2 max-w-[80%]">
@@ -176,14 +173,10 @@ export default function AssistenteVirtual() {
                           </Avatar>
                         )}
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                   {isTyping && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="flex justify-start"
-                    >
+                    <div className="flex justify-start">
                       <div className="flex items-start gap-2 max-w-[80%]">
                         <Avatar className="h-8 w-8">
                           <AvatarFallback className="bg-primary text-primary-foreground">
@@ -198,7 +191,7 @@ export default function AssistenteVirtual() {
                           </div>
                         </div>
                       </div>
-                    </motion.div>
+                    </div>
                   )}
                   <div ref={messagesEndRef} />
                 </div>
