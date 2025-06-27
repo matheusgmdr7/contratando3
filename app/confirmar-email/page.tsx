@@ -4,14 +4,13 @@ import { useEffect, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
+import { supabase } from "@/lib/supabase-auth"
 
 export default function ConfirmarEmail() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [status, setStatus] = useState<"loading" | "success" | "error">("loading")
   const [message, setMessage] = useState("")
-  const supabase = createClientComponentClient()
 
   useEffect(() => {
     const confirmEmail = async () => {
@@ -47,7 +46,7 @@ export default function ConfirmarEmail() {
     }
 
     confirmEmail()
-  }, [searchParams, supabase.auth])
+  }, [searchParams])
 
   return (
     <div className="min-h-screen flex flex-col">
