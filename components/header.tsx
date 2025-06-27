@@ -69,7 +69,7 @@ export default function Header() {
                 Contato
               </Link>
               <Link
-                href="/corretores"
+                href="/corretor/login"
                 className="text-white hover:text-white/80 font-medium text-sm tracking-wide transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all hover:after:w-full"
               >
                 Corretores
@@ -119,7 +119,7 @@ export default function Header() {
                   Contato
                 </Link>
                 <Link
-                  href="/corretores"
+                  href="/corretor/login"
                   className="text-white font-medium py-2 hover:translate-x-1 transition-transform text-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >
